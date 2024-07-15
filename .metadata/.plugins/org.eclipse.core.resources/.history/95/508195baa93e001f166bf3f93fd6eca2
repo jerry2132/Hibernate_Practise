@@ -1,0 +1,40 @@
+package com.hibernate.HibernateManyToOne3pm.entity;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
+
+	@Id
+	private int id;
+	private String name;
+	private String email;
+	private long phone;
+	
+	@CreationTimestamp
+	private LocalDateTime registerDateTime;
+	
+	@ManyToOne
+	private ClassRoom classRoom;
+
+	public Student(String name, String email, long phone, LocalDateTime registerDateTime) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.registerDateTime = registerDateTime;
+	}
+	
+	
+}

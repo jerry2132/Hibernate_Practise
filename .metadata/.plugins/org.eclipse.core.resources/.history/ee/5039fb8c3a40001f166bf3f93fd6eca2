@@ -1,0 +1,5 @@
+package com.hibernate.ManyToManyUni3pm.dao;
+
+public class StudentSubjectDao {
+
+}

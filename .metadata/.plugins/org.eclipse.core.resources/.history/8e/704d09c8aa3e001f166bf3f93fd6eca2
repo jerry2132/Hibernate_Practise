@@ -1,0 +1,21 @@
+package com.hibernate.HibernateManyToOne3pm.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.hibernate.HibernateManyToOne3pm.entity.Student;
+
+public class ClassRoomStudentDao {
+
+	
+	EntityManager em = Persistence.createEntityManagerFactory("sumit").createEntityManager();
+	EntityTransaction et = em.getTransaction();
+	
+	
+	public Student insertData() {
+		
+		
+		
+	}
+}

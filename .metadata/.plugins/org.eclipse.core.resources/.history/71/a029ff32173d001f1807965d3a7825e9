@@ -1,0 +1,5 @@
+package com.hibernate.OneToMany3pm.dao;
+
+public class StateDistrictDao {
+
+}

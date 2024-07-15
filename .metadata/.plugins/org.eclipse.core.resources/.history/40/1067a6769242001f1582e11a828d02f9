@@ -1,0 +1,20 @@
+package com.hibernate.OneToOne3PMBi.controller;
+
+import com.hibernate.OneToOne3PMBi.entity.Capital;
+import com.hibernate.OneToOne3PMBi.entity.Country;
+import com.hibernate.OneToOne3PMBi.entity.dao.CountryCapitalDao;
+
+public class InsertController {
+
+
+	public static void main(String[] args) {
+	
+		CountryCapitalDao cc = new CountryCapitalDao();
+		
+		Capital cap = new Capital(3,"ny",79989,5,null);
+		Country con  = new Country(5,"USA",78809,7890878,null);
+		
+		cc.save(con, cap);
+		
+	}
+}

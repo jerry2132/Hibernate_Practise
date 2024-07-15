@@ -1,0 +1,5 @@
+package com.hibernate.HibernateManyToOne3pm.entity;
+
+public class ClassRoom {
+
+}

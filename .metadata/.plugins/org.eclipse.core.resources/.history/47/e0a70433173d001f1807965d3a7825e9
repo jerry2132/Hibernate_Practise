@@ -1,0 +1,15 @@
+package com.hibernate.OneToMany3pm.dto;
+
+import java.time.LocalDate;
+
+public class District {
+
+	
+	private int id;
+	
+	private String name;
+	
+	private long  population;
+	
+	private LocalDate establishedYear;
+}

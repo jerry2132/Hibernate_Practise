@@ -1,0 +1,22 @@
+package com.hibernate.OneToMany3pm.controller;
+
+import com.hibernate.OneToMany3pm.dao.StateDistrictDao;
+import com.hibernate.OneToMany3pm.dto.State;
+
+public class GetAllData {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		StateDistrictDao dao = new StateDistrictDao();
+		
+		
+		State st =dao.getAll(1);
+		
+		System.out.println(st);
+		
+		System.out.println(st.getDistrict());
+	}
+
+}

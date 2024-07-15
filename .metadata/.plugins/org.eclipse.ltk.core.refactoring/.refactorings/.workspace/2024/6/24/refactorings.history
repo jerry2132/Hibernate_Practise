@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ManyToManyUnidirectional&apos; to &apos;ManyToManyBidirectional&apos;" description="Rename resource &apos;ManyToManyUnidirectional&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/ManyToManyUnidirectional" name="ManyToManyBidirectional" stamp="1718348535570" updateReferences="true"/>
+</session>

@@ -1,0 +1,21 @@
+package com.hibernate.ManyToManyUni3pm.entity;
+
+import java.util.List;
+
+
+@Data
+public class Student {
+
+	
+	int id;
+	
+	String name;
+	
+	String email;
+	
+	private long phone;
+	
+	byte[] image;
+	
+	List<Subject> subject;
+}

@@ -1,0 +1,112 @@
+package com.hibernate.ManyToManyUni3pm.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.hibernate.ManyToManyUni3pm.entity.Student;
+import com.hibernate.ManyToManyUni3pm.entity.Subject;
+
+public class StudentSubjectDao {
+
+	
+	EntityManager em = Persistence.createEntityManagerFactory("sumit").createEntityManager();
+	EntityTransaction et = em.getTransaction();
+	
+	
+	public List<Student> insertStudent(List<Student> student) {
+		
+		et.begin();
+		for (Student student2 : student) {
+			
+			em.persist(student2);
+		}
+		
+		et.commit();
+		
+		return student;
+	}
+	
+	
+	public boolean deleteSubjectOfSpecificStudent(int id ,String name){
+		try {
+			
+			//Student student = em.find(Student.class, id);
+			
+			Subject subject = (Subject) em.createQuery("select s from Subject s where s.name=?1").setParameter(1, name).getSingleResult();
+			
+			int subject_id = subject.getId();
+			
+			
+			
+			
+		//	System.out.println(ids.);
+			et.begin();
+		//	em.createNativeQuery("delete from student_subject where ")
+			em.createNativeQuery("delete from student_subject where Student_id=?1 && subject_id=?2").setParameter(1, id).
+			setParameter(2,subject_id).executeUpdate();
+			et.commit();
+			
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();;
+		}
+		
+	
+	return false;
+	}
+	
+	
+	public List<Student> insertSubjectAndAssignToAllStudents(List<Subject> subject) {
+		
+	List<Student> student = 	em.createQuery("from Student").getResultList();
+		
+	try {
+		et.begin();
+		
+		for (Student student2 : student) {
+			
+			
+			student2.setSubject(subject);
+			em.persist(student2);
+		}
+		
+		et.commit();
+		
+		return student;
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+	return null;
+	
+	}
+	
+	
+	
+	
+	
+	
+}
+
+
+
+/*
+ List<Student> allStudents = em.createQuery("SELECT s FROM Student s", Student.class).getResultList();
+			
+			List<Student> student1 = allStudents.stream()
+             .filter(student -> student.getSubject().stream()
+                                       .anyMatch(subject -> name.equals(subject.getName())))
+             .collect(Collectors.toList());
+			
+		
+			for (Student student2 : student1) {
+				
+				System.out.println(student2);
+			}
+			
+			
+	
+*/

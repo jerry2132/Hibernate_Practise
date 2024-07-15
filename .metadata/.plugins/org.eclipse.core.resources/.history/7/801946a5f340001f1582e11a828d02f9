@@ -1,0 +1,14 @@
+package com.hibernate.ManyToManyUni3pm.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class StudentSubjectDao {
+
+	
+	EntityManager em = Persistence.createEntityManagerFactory("sumit").createEntityManager();
+	EntityTransaction et = em.getTransaction();
+	
+	
+}

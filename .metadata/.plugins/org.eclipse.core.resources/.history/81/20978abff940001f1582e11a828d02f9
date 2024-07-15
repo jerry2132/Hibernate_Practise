@@ -1,0 +1,18 @@
+package com.hibernate.ManyToManyUni3pm.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hibernate.ManyToManyUni3pm.entity.Student;
+
+public class InsertController {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		 
+		List<Student> student = new ArrayList<>();
+		
+	}
+
+}

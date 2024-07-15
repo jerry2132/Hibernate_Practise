@@ -1,0 +1,59 @@
+package com.hibernate.ManyToManyUni3pm.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.hibernate.ManyToManyUni3pm.entity.Student;
+import com.hibernate.ManyToManyUni3pm.entity.Subject;
+
+public class StudentSubjectDao {
+
+	
+	EntityManager em = Persistence.createEntityManagerFactory("sumit").createEntityManager();
+	EntityTransaction et = em.getTransaction();
+	
+	
+	public List<Student> insertStudent(List<Student> student) {
+		
+		et.begin();
+		for (Student student2 : student) {
+			
+			em.persist(student2);
+		}
+		
+		et.commit();
+		
+		return student;
+	}
+	
+	
+	public boolean deleteSubjectByName(String name){
+		try {
+			
+			Subject sub = (Subject)em.createQuery("select s from Subject s where s.name=?1").setParameter(1, name).getSingleResult();
+			
+			int id = sub.getId();
+			
+		List<Student> ids = 	em.createNativeQuery("select * from student_subject where subject_id=?1").setParameter(1, id).getResultList();
+			System.out.println("iddbhja    "+ids);
+			
+			System.out.println(ids.toString());
+			et.begin();
+		//	em.createNativeQuery("delete from student_subject where ")
+			et.commit();
+			
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();;
+		}
+		
+	
+	return false;
+	}
+	
+	
+	
+}

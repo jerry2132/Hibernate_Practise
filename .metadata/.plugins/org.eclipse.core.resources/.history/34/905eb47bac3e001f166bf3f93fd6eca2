@@ -1,0 +1,17 @@
+package com.hibernate.HibernateManyToOne3pm.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ClassRoom {
+
+	private int number;
+	private int strength;
+	private String floor;
+	
+	private String section;
+}

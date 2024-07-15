@@ -1,0 +1,19 @@
+package com.hibernate.ManyToManyUni3pm.controller;
+
+public class demo {
+	
+	static int a;
+	static int b;
+	{
+		a=2;
+		b=9;
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+	}
+
+}

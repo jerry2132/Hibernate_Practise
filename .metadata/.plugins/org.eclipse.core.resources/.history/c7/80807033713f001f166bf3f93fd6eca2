@@ -1,0 +1,16 @@
+package com.hibernate.HibernateManyToOne3pm.controller;
+
+import com.hibernate.HibernateManyToOne3pm.dao.ClassRoomStudentDao;
+
+public class GetStudentByClassRoomId {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ClassRoomStudentDao dao = new ClassRoomStudentDao();
+		
+		System.out.println(dao.getStudentByClassId(1));
+
+	}
+
+}

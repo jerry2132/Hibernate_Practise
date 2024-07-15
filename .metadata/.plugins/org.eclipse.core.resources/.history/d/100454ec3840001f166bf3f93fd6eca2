@@ -1,0 +1,38 @@
+package com.hibernate.ManyToManyUni3pm.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Student {
+
+	
+	@Id
+	@GeneratedValue
+	int id;
+	
+	String name;
+	
+	String email;
+	
+	private long phone;
+	
+	@Lob
+	byte[] image;
+	
+	List<Subject> subject;
+	
+	
+}
