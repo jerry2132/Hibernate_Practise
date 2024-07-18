@@ -10,7 +10,7 @@ public class DeleteByCapitalId {
 		
 		CountryCapitalDao dao = new CountryCapitalDao();
 		
-		if(dao.deleteByCapitalId(2))
+		if(dao.deleteByCapitalId(1))
 			System.out.println("deleted");
 		else
 			System.out.println("not deleted");

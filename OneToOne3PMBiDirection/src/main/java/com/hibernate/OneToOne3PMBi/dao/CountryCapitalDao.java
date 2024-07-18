@@ -1,5 +1,7 @@
 package com.hibernate.OneToOne3PMBi.dao;
 
+import java.util.LinkedList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
@@ -24,6 +26,11 @@ public class CountryCapitalDao {
 			//cp.setCountry(c);
 			em.persist(c);
 			et.commit();
+//			et.begin();
+//			em.persist(cp);
+//			em.persist(c);
+//			et.commit();
+			
 			return c;
 		}catch(Exception e) {
 			
@@ -58,6 +65,13 @@ public class CountryCapitalDao {
 	}
 	
 	
+	public Capital getCapitalById(int capitalId) {
+		
+		return em.find(Capital.class, capitalId);
+	}
+	
+	
+	
 	public boolean deleteByCapitalId(int id) {
 		
 		
@@ -72,17 +86,17 @@ public class CountryCapitalDao {
 		
 		//q.executeUpdate();
 		
-		Capital con = 	em.find(Capital.class, id);
+		Capital cap = 	em.find(Capital.class, id);
 		
 		try {
 			
-			if(con != null) {
+			if(cap != null) {
 				
 				et.begin();
 				q.executeUpdate();
 				//country.setCapital(null);
-				con.setCountry(null);
-				em.remove(con);
+				//cap.setCountry(null);
+				em.remove(cap);
 				et.commit();
 				
 				return true;
@@ -104,4 +118,46 @@ public class CountryCapitalDao {
 //	public Country updateCapitalNameByCountryId(int id) {
 //		
 //	}
+	
+	
+	//delete capital as well as Country by capital id
+	//see if capital the no owninng side also have 
+	
+	
+	public boolean deleteCapitalAndCountryByCapitalId(int capitalId) {
+		
+		Capital capital = em.find(Capital.class, capitalId);
+		Country country = capital.getCountry();
+		
+		
+		if(capital != null && country != null) {
+			et.begin();
+//			capital.setCountry(null);
+//			country.setCapital(null);
+			em.remove(country);
+			
+			et.commit();
+			
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+
+	public boolean deleteCapitalByCapitalId(int id) {
+		
+		Capital capital  = em.find(Capital.class, id);
+		
+		Country country = capital.getCountry();
+		
+		et.begin();
+		country.setCapital(null);
+		em.remove(capital);
+		et.commit();
+		return true;
+	}
+	
+	
 }

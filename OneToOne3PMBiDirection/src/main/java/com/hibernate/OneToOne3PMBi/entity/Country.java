@@ -15,7 +15,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
 @Entity
 public class Country {
 
@@ -28,4 +28,11 @@ public class Country {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Capital capital;
+
+	@Override
+	public String toString() {
+		return "Country [id=" + id + ", name=" + name + ", population=" + population + ", no_Seats=" + no_Seats + "]";
+	}
+	
+	
 }

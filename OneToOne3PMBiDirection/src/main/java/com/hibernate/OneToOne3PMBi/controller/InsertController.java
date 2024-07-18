@@ -11,8 +11,8 @@ public class InsertController {
 	
 		CountryCapitalDao cc = new CountryCapitalDao();
 		
-		Capital cap = new Capital(4,"ny",79989,5,null);
-		Country con  = new Country(3,"USA",78809,7890878,cap);
+		Capital cap = new Capital(8,"ny",79989,5,null);
+		Country con  = new Country(99,"USA",78809,7890878,cap);
 		
 		cc.save(con, cap);
 		

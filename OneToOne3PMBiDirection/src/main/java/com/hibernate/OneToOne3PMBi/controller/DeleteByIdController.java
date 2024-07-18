@@ -9,7 +9,7 @@ public class DeleteByIdController {
 		
 		CountryCapitalDao dao = new CountryCapitalDao();
 		
-		if(dao.deleteCoutryById(2))
+		if(dao.deleteCoutryById(1))
 			System.out.println("deleted");
 		else 
 			System.out.println("not deleted, id  not found");

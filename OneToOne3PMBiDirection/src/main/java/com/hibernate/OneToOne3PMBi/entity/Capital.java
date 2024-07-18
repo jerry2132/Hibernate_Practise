@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
 @Entity
 public class Capital {
 
@@ -26,5 +26,13 @@ public class Capital {
 	
 	@OneToOne(mappedBy = "capital")
 	private Country country;
+
+	@Override
+	public String toString() {
+		return "Capital [id=" + id + ", name=" + name + ", population=" + population + ", noDistrict=" + noDistrict
+				+ "]";
+	}
+	
+	
 	
 }
